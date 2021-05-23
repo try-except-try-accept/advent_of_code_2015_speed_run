@@ -1,7 +1,7 @@
 with open("day1.txt") as f:
      input_data = f.read()
 
-def solve(data):
+def solve_a(data):
      floor = 0
      for char in data:
  
@@ -10,6 +10,20 @@ def solve(data):
           elif char == ")":
                floor -= 1
 
+     return floor
+
+def solve(data):
+     floor = 0
+
+     for pos, char in enumerate(data):
+ 
+          if char == "(":
+               floor += 1
+          elif char == ")":
+               floor -= 1
+
+          if floor == -1:
+               return pos+1
 
      return floor
 
